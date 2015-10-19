@@ -72,32 +72,32 @@ public class Reader {
 			return sb.toString();
 		}
 
-		private char removeUnicode(char c) {
+		private String removeUnicode(char c) {
 			boolean upper = false;
-			char changed;
+			String changed;
 			if(Character.compare(c, Character.toLowerCase(c)) != 0) {
 				upper = true;
 			}
 			switch (Character.toLowerCase(c)) {
 			case 'č':
-				changed = 'c';
+				changed = "c";
 				break;
 			case 'ć':
-				changed = 'c';
+				changed = "c";
 				break;
 			case 'ž':
-				changed = 'z';
+				changed = "z";
 				break;
 			case 'đ':
-				changed = 'd';
+				changed = "dj";
 				break;
 			case 'š':
-				changed = 's';
+				changed = "s";
 				break;
 			default:
-				changed = c;
+				changed = String.valueOf(c);
 			}
-			return Character.toUpperCase(changed);
+			return changed.toUpperCase();
 		}
 
 		@Override
